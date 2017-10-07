@@ -14,4 +14,9 @@
 
                 <% end %>
                 </h1>
-<%= link_to "Grocery List", grocery_list_path, method: :get %>
+
+
+
+<%= month_calendar number_of_weeks: 2 do |date| %>
+  <%= date %>
+<% end %>
