@@ -4,16 +4,30 @@ class RoomsController < ApplicationController
   def setup
 
   end
+  def join
+    @id = params[:id]
+    if !Room.exists?(room_number: @id)
+      redirect_to setup_path, :flash => { :error => "That room doesn't exist" }
+      return
+    end
+    @room = Room.find_by(room_number = @id)
+
+    @room.users << current_user
+    current_user.room = @room
+    current_user.save
+    redirect_to root_url
+    return
+  end
   def create
 
     @id = params[:id]
-    if Room.exists?(:id => @id)
+    if Room.exists?(room_number: @id)
       redirect_to setup_path, :flash => { :error => "That room exists" }
       return
     end
     @room = Room.new
     @room.room_number = @id
-
+    @room.users << current_user
     @room.save
     current_user.room = @room
     current_user.save

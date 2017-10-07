@@ -1,8 +1,17 @@
 <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-<%= link_to "Leave Rroom", delete_room_path, method: :post %>
+<%= link_to "Leave Room", delete_room_path, method: :post %>
 
 <h1>Hi</h1>
-<h1><%= if current_user
+<h1><%= if current_user.room != nil
           "Your room: "+current_user.room.room_number.to_s
         end
         %></h1>
+        <h1><% if current_user.room != nil %>
+                  "Your roomates: "
+                  <%current_user.room.users.each do |u| %>
+                    <%= u.email + "\n" %>
+                  <% end %>
+
+                <% end %>
+                </h1>
+<%= link_to "Grocery List", grocery_list_path, method: :get %>

@@ -1,0 +1,27 @@
+<%= link_to "Back To Room", root_url, method: :get %>
+
+<h1> Your list </h1>
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Requested by</th>
+    <th>Drop</th>
+  </tr>
+
+   <% current_user.room.users.each do |u| %>
+   <% u.lists.each do |list| %>
+  <tr>
+    <td><%= list.item %></td>
+    <td><%= list.quantity %></td>
+    <td><%= u.email %></td>
+    <td><% if u == current_user %> <%= "Can delete" %> <% end %> </td>
+  </tr>
+  <% end %><% end %>
+</table>
+<%= form_tag("/lists/create", method: "post") do %>
+  <%= label_tag(:id, "Add a new item") %>
+  <%= text_field_tag(:name) %>
+  <%= text_field_tag(:quantity) %>
+  <%= submit_tag("Add") %>
+<% end %>

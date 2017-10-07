@@ -7,3 +7,8 @@
   <%= text_field_tag(:id) %>
   <%= submit_tag("Create") %>
 <% end %>
+<%= form_tag("/rooms/join", method: "post") do %>
+  <%= label_tag(:id, "Join a old room:") %>
+  <%= text_field_tag(:id) %>
+  <%= submit_tag("Join") %>
+<% end %>
