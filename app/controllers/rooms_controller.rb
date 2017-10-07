@@ -2,7 +2,6 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
   @text = false
   def setup
-
   end
   def join
     @id = params[:id]
@@ -39,5 +38,6 @@ class RoomsController < ApplicationController
       redirect_to setup_path
       return
     end
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 end

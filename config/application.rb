@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Roomates
   class Application < Rails::Application
+    config.autoload_paths += %W(#{config.root}/lib)
+    #added the above line to make the calendar work
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

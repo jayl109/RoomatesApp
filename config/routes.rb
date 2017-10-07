@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   get "/rooms/setup", to: "rooms#setup", as: "setup"
-  root to: "rooms#display"
+  root to: "rooms#display", as: "display"
   post "/rooms/create", to: "rooms#create"
   post "/users/delete_room", to: "users#delete_room", as: "delete_room"
   post "/rooms/join", to: "rooms#join"
