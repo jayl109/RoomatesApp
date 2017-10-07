@@ -1,0 +1,9 @@
+<h1> You are not registered to a room. Join or create one! </h1>
+<% if flash[:error] %>
+  <p style="color: green;"><%= flash[:error] %></p>
+<% end %>
+<%= form_tag("/rooms/create", method: "post") do %>
+  <%= label_tag(:id, "Create a new room:") %>
+  <%= text_field_tag(:id) %>
+  <%= submit_tag("Create") %>
+<% end %>

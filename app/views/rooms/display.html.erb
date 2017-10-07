@@ -1,0 +1,8 @@
+<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+<%= link_to "Leave Rroom", delete_room_path, method: :post %>
+
+<h1>Hi</h1>
+<h1><%= if current_user
+          "Your room: "+current_user.room.room_number.to_s
+        end
+        %></h1>
