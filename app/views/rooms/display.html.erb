@@ -1,23 +1,28 @@
 
-
-<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-<%= link_to "Leave Room", delete_room_path, method: :post %>
-
-<h1>Hi</h1>
-<h1><%= if current_user.room != nil
-          "Your room: "+current_user.room.room_number.to_s
+<center> <%= if current_user.room != nil
+          "Room Number "+current_user.room.room_number.to_s
         end
-        %></h1>
-        <h1><% if current_user.room != nil %>
-                  "Your roomates: "
-                  <%current_user.room.users.each do |u| %>
-                    <%= u.email + "\n" %>
-                  <% end %>
+        %>
+  <table>
+  <tr>
+    <th>Room</th>
+    <th>mates</th>
 
-                <% end %>
-                </h1>
+</tr>
+<tr>
+    <h1><% if current_user.room != nil %>
+              <%current_user.room.users.each do |u| %>
+                <td> <%= u.email + "\n" %> </td>
+              <% end %>
 
-                <%= link_to "Grocery List", grocery_list_path, method: :get %>
+            <% end %>
+            </h1>
+          </tr>
+          <br>
+        </center>
+</table>
+
+
 
                 <div class="row">
                   <div class="col-md-12 text-center">

@@ -2,9 +2,10 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
   @text = false
   def setup
-
+    puts "setup"
   end
   def join
+    puts "join"
     @id = params[:id]
     if !Room.exists?(room_number: @id)
       redirect_to setup_path, :flash => { :error => "That room doesn't exist" }
@@ -19,7 +20,7 @@ class RoomsController < ApplicationController
     return
   end
   def create
-
+    puts "\n\nhere"
     @id = params[:id]
     if Room.exists?(room_number: @id)
       redirect_to setup_path, :flash => { :error => "That room exists" }
@@ -31,6 +32,7 @@ class RoomsController < ApplicationController
     @room.save
     current_user.room = @room
     current_user.save
+    puts "redirecting"
     redirect_to display_path
     return
   end

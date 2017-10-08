@@ -7,7 +7,7 @@ class ListsController < ApplicationController
     grocery.save
     current_user.lists << grocery
     current_user.save
-    Email.send_list("jasonlum109@berkeley.edu", grocery.item, grocery.quantity)
+    Email.send_list(current_user.email, grocery.item, grocery.quantity)
     redirect_to grocery_list_path
     return
   end

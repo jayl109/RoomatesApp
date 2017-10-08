@@ -1,11 +1,6 @@
 
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -16,7 +11,7 @@
 
       <div class="well">
 
-<h2>Grocery Table as of YYYY-MM-DD</h2>
+<h2>Grocery Table</h2>
 
 <table>
   <tr>
@@ -37,22 +32,19 @@
 </table>
 
   <div>
-  <form action="/action_page.php">
-  <br>
-   <label for="fname">Item </label>
-   <br>
-    <input type="text" id="fname" name="firstname" placeholder="Item...">
-     <br>
-    <label for="fname">Amount</label><br>
-    <input type="text" id="lname" name="lastname" placeholder="Amount...">
- <br>
 
-<br>
+<%= form_tag("/lists/create", method: "post") do %>
+  <%= label_tag(:name, "Item Name") %>
+  <%= text_field_tag(:name) %>
+  <br>
+  <%= label_tag(:quantity, "Quantity") %>
+  <%= text_field_tag(:quantity) %>
+  <br>
+  <%= submit_tag("Submit", :class => "button2") %>
+<% end %>
 
-  <a href="#" class="button2">Add Item</a>
-  <br>
-  <br>
+
+
+</div>
 </body>
 </html>
-
-<%= link_to "Back To Room", display_path, method: :get %>

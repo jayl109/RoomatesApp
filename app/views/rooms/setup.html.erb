@@ -24,21 +24,22 @@
         <% end %>
 
       <div class="well">
-      <form action="/action_page.php">
+
+
+        <%= form_tag("/rooms/join", method: "post") do %>
+          <%= label_tag(:id, "Join a old room:") %>
+          <%= text_field_tag(:id) %>
+          <%= submit_tag("Join", :class => "button2") %>
+        <% end %>
 
         <%= form_tag("/rooms/create", method: "post") do %>
           <%= label_tag(:id, "Create a new room:") %>
           <%= text_field_tag(:id) %>
-          <%= submit_tag("Create", :class => "button") %>
-        <% end %>
-        <%= form_tag("/rooms/join", method: "post") do %>
-          <%= label_tag(:id, "Join a old room:") %>
-          <%= text_field_tag(:id) %>
-          <%= submit_tag("Join", :class => "button") %>
+          <%= submit_tag("Create", :class => "button2") %>
         <% end %>
 
 
-  </form>
+
 
 
 
