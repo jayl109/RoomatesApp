@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   post "/rooms/join", to: "rooms#join"
   get "/list/join", to: "lists#view", as: "grocery_list"
   post "/lists/create", to:"lists#create", as: "create_grocery"
+  get "/users/logout", to:"users#logout", as: "logout"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

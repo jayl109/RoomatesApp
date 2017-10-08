@@ -1,27 +1,58 @@
-<%= link_to "Back To Room", display_path, method: :get %>
 
-<h1> Your list </h1>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+
+<div class="container-fluid text-center">
+  <div class="row content">
+
+      <div class="well">
+
+<h2>Grocery Table as of YYYY-MM-DD</h2>
+
 <table>
   <tr>
     <th>Item</th>
-    <th>Quantity</th>
+    <th>Quanitity</th>
     <th>Requested by</th>
     <th>Drop</th>
   </tr>
-
-   <% current_user.room.users.each do |u| %>
-   <% u.lists.each do |list| %>
-  <tr>
-    <td><%= list.item %></td>
-    <td><%= list.quantity %></td>
-    <td><%= u.email %></td>
-    <td><% if u == current_user %> <%= "Can delete" %> <% end %> </td>
-  </tr>
-  <% end %><% end %>
+  <% current_user.room.users.each do |u| %>
+  <% u.lists.each do |list| %>
+ <tr>
+   <td><%= list.item %></td>
+   <td><%= list.quantity %></td>
+   <td><%= u.email %></td>
+   <td><% if u == current_user %> <%= "Can delete" %> <% end %> </td>
+ </tr>
+ <% end %><% end %>
 </table>
-<%= form_tag("/lists/create", method: "post") do %>
-  <%= label_tag(:id, "Add a new item") %>
-  <%= text_field_tag(:name) %>
-  <%= text_field_tag(:quantity) %>
-  <%= submit_tag("Add") %>
-<% end %>
+
+  <div>
+  <form action="/action_page.php">
+  <br>
+   <label for="fname">Item </label>
+   <br>
+    <input type="text" id="fname" name="firstname" placeholder="Item...">
+     <br>
+    <label for="fname">Amount</label><br>
+    <input type="text" id="lname" name="lastname" placeholder="Amount...">
+ <br>
+
+<br>
+
+  <a href="#" class="button2">Add Item</a>
+  <br>
+  <br>
+</body>
+</html>
+
+<%= link_to "Back To Room", display_path, method: :get %>

@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def logout
+    redirect_to destroy_user_session_path
+    return
+  end
   def delete_room
     @room = current_user.room
 
@@ -9,6 +13,6 @@ class UsersController < ApplicationController
       @room.users.delete(current_user)
     end
     current_user.save
-    redirect_to root_url
+    redirect_to display_path
   end
 end

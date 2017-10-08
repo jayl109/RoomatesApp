@@ -1,0 +1,85 @@
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 36px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */
+.button5 {background-color: #555555;} /* Black */
+
+
+
+.button2 {
+  -webkit-border-radius: 25;
+  -moz-border-radius: 25;
+  border-radius: 25px;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 16px;
+  background: #46c2eb;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+
+input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+table, td, th {
+    border: px solid black;
+    height: 40px;
+    vertical-align: center;
+    text-align: center;
+}
+
+table {
+     vertical-align: center;
+    width: 100%;
+    text-align: center;
+}
+
+td {
+    height: 40px;
+    vertical-align: center;
+}
+th, td {
+    padding: 20px;
+    text-align: center;
+
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+
+}
+tr:hover {background-color: #48c7db
+}
+
+th {
+  text-align: center;
+
+    background-color: #48c7db;
+    color: black;
+}

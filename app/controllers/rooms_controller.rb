@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
   @text = false
   def setup
+
   end
   def join
     @id = params[:id]
@@ -14,7 +15,7 @@ class RoomsController < ApplicationController
     @room.users << current_user
     current_user.room = @room
     current_user.save
-    redirect_to root_url
+    redirect_to display_path
     return
   end
   def create
@@ -30,7 +31,7 @@ class RoomsController < ApplicationController
     @room.save
     current_user.room = @room
     current_user.save
-    redirect_to root_url
+    redirect_to display_path
     return
   end
   def display
